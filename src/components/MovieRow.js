@@ -6,6 +6,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 export default ({title,items}) => {
 
     const [scrollX,setScrollX] = useState(0);
+    const [info, setInfo] = useState(null);
 
 
     const handleLeftArrow = () => {
@@ -30,7 +31,11 @@ export default ({title,items}) => {
 
     }
 
-
+    const addItemHandler = (info) => {
+        alert("title:" + info.name);
+        console.log(info);
+     
+    }
 
 
     return (
@@ -59,10 +64,10 @@ export default ({title,items}) => {
                 }}>
                 {items.results.length > 0 && items.results.map((item, key)=>(
 
-                    <div key={key} className="movieRow--item">
+                    <div key={key} className="movieRow--item" onClick={() => addItemHandler(item)}>
 
                        <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}/>
-
+                       
                     </div>
 
                 ))}

@@ -7,18 +7,12 @@ import MovieRow from './components/MovieRow';
 
 export default() => {
 
-  // parei no 2:27.
-
 
   const [movieList, setMovieList] = useState([]);
-/* use state específico para apresentar o filme principal/ em destaque */
-//  const [featuredData, setFeaturedData] = useState(null);
-//  const [blackHeader, setBlackHeader] = useState(false);
 
 
   useEffect(() => {
     const loadAll = async () => {
-
 
       let list = await Tmdb.getHomeList();
       setMovieList(list);
@@ -27,15 +21,12 @@ export default() => {
 
     loadAll();
 
-
-
   },[]);
   
 
 
   return(
     <div className="page">
-
        
        <section className="lists">
          {movieList.map((item, key) => (
